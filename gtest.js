@@ -44,7 +44,7 @@ class GTestList extends IGTest {
     constructor(label) {
         super(label);
         this.testList = []
-        this.collapsibleState = vscode.TreeItemCollapsibleState.Collapsed;
+        this.collapsibleState = vscode.TreeItemCollapsibleState.Expanded;
         console.log("Create new tests list: " + label)
     }
 
@@ -73,7 +73,7 @@ class GTestRunner {
     constructor(executer, context)
     {
         this.executer = executer;
-
+        this.outputChannel = vscode.window.createOutputChannel("GTestRunner");
         this.icons = {
             passed: context.asAbsolutePath(path.join('resources', 'dark', 'ok.svg')),
             failed: context.asAbsolutePath(path.join('resources', 'dark', 'fail.svg'))};
@@ -86,6 +86,8 @@ class GTestRunner {
     
     run(label) {
         var output = this.executer.run(label);
+        this.outputChannel.clear();
+        this.outputChannel.append(output);
         if(output.indexOf(GTestFailedMessage) == -1)
         {
             return true;
