@@ -1,0 +1,73 @@
+{
+    "name": "gtestrunner",
+    "displayName": "GTestRunner",
+    "description": "run GTests",
+    "version": "0.0.1",
+    "publisher": "Swifty21rus",
+    "engines": {
+        "vscode": "^1.22.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.sayHello",        
+		"onView:gtestRunner"
+    ],
+    "main": "./extension",
+    "contributes": {		
+        "views": {
+			"explorer": [
+                {
+					"id": "gtestRunner",
+					"name": "GTests"
+				}
+			]
+		},
+        "commands": [
+            {
+				"command": "gtestRunner.refresh",
+				"title": "Refresh",
+				"icon": {
+					"light": "./resources/light/refresh.svg",
+					"dark": "./resources/dark/refresh.svg"
+				}
+            },
+            {
+				"command": "gtestRunner.runTest",
+				"title": "run Test",
+				"icon": {
+					"light": "./resources/dark/run.svg",
+					"dark": "./resources/dark/run.svg"
+				}
+            }
+        ],
+        "menus": {
+            "view/title": [
+                {
+                    "command": "gtestRunner.refresh",
+                    "when": "view == gtestRunner",
+                    "group": "navigation"
+                }
+            ],
+            "view/item/context": [
+                {
+                    "command": "gtestRunner.runTest",
+                    "when": "view == gtestRunner",
+                    "group": "inline"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "eslint": "^4.11.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}
