@@ -15,7 +15,20 @@
 		"onView:gtestRunner"
     ],
     "main": "./extension",
-    "contributes": {		
+    "contributes": {
+		"configuration": [
+			{
+                "title": "Configuration Samples",
+				"properties": {
+					"gtestRunner.exe": {
+						"type": "string",
+						"default": null,
+						"description": "resource configuration",
+						"scope": "resource"
+					}
+				}
+            }
+        ],
         "views": {
 			"explorer": [
                 {
