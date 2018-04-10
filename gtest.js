@@ -54,10 +54,8 @@ class GTestList extends IGTest {
 
     run()
     {
-        this.testList.forEach(function(test) {
-            test.run();
-        });
-        return true;
+        var result = this.runner.run(this.label + ".*");        
+        return result;
     }
 
     GetChild()

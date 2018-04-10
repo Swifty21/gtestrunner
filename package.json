@@ -11,48 +11,48 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello",        
-		"onView:gtestRunner"
+        "onCommand:extension.sayHello",
+        "onView:gtestRunner"
     ],
     "main": "./extension",
     "contributes": {
-		"configuration": [
-			{
+        "configuration": [
+            {
                 "title": "Configuration Samples",
-				"properties": {
-					"gtestRunner.exe": {
-						"type": "string",
-						"default": null,
-						"description": "resource configuration",
-						"scope": "resource"
-					}
-				}
+                "properties": {
+                    "gtestRunner.exe": {
+                        "type": "string",
+                        "default": null,
+                        "description": "resource configuration",
+                        "scope": "resource"
+                    }
+                }
             }
         ],
         "views": {
-			"explorer": [
+            "explorer": [
                 {
-					"id": "gtestRunner",
-					"name": "GTests"
-				}
-			]
-		},
+                    "id": "gtestRunner",
+                    "name": "GTests"
+                }
+            ]
+        },
         "commands": [
             {
-				"command": "gtestRunner.refresh",
-				"title": "Refresh",
-				"icon": {
-					"light": "./resources/light/refresh.svg",
-					"dark": "./resources/dark/refresh.svg"
-				}
+                "command": "gtestRunner.refresh",
+                "title": "Refresh",
+                "icon": {
+                    "light": "./resources/light/refresh.svg",
+                    "dark": "./resources/dark/refresh.svg"
+                }
             },
             {
-				"command": "gtestRunner.runTest",
-				"title": "run Test",
-				"icon": {
-					"light": "./resources/dark/run.svg",
-					"dark": "./resources/dark/run.svg"
-				}
+                "command": "gtestRunner.runTest",
+                "title": "run Test",
+                "icon": {
+                    "light": "./resources/dark/run.svg",
+                    "dark": "./resources/dark/run.svg"
+                }
             }
         ],
         "menus": {
